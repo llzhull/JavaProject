@@ -29,12 +29,20 @@ public class Holder3<T>{
         //当创建holder3 对象时，必须指明创建什么类型，放在尖括号内，
         //当从holder3 中取出对象时，自动就是正确的类型，不用强转
 
-        Holder3<Automobile> holder3=new Holder3<>(new Automobile());
-        Automobile automobile = holder3.get();
-        System.out.println("automobile = " + automobile);
+//        Holder3<Automobile> holder3=new Holder3<>(new Automobile());
+//        Automobile automobile = holder3.get();
+//        System.out.println("automobile = " + automobile);
+//
+//
+//        Holder3<String> holder31=new Holder3<>("aaaa");
+//        System.out.println("holder31.get() = " + holder31.get());
+
+        Holder3<Apple> apple=new Holder3<>(new Apple());
+//        Holder3<? extends Fruit> fHolder =new Holder3<>(new Apple());
+        Holder3<? extends Fruit> fHolder =apple;
+        System.out.println("fHolder.get() = " + fHolder.get());
+        fHolder.get();
 
 
-        Holder3<String> holder31=new Holder3<>("aaaa");
-        System.out.println("holder31.get() = " + holder31.get());
     }
 }
