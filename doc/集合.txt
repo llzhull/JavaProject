@@ -1,0 +1,71 @@
+List
+Set
+Queue
+Map
+
+## 线程安全的集合
+
+- Hashtable && Vector  所有的方法都用synchronized 关键字修饰
+
+- Collections 实现线程安全
+
+  ```
+    Collections.synchronizedMap(new HashMap<>());
+    Collections.synchronizedList(new ArrayList<>());
+  ```
+
+
+
+- ConCurrentHashMap && CopyOnWriteArrayList
+
+**多线程的程序，在使用容器的时候，优先考虑queue 少考虑List**
+
+
+
+## BlockingQueue
+
+- LinkedBlocingQueue
+
+  ```Java
+      //添加成功返回true，
+      //超出容量，抛出异常，java.lang.IllegalStateException: Queue full
+
+      boolean add(E e)
+
+      //移除成功返回删除元素
+      //队列为空时，抛出异常，java.util.NoSuchElementException
+  	//检索并删除此队列的头部。此方法与 {@link poll poll} 的不同之处仅在于，如果此队列为空，它会引发异常。
+      E remove()
+
+      //添加成功返回true，添加失败返回false
+      boolean offer(E e)
+      // 只获取不删除，获取成功返回元素
+      //队列为空时，返回null
+      E peek()
+
+      //获取并删除，获取成功返回元素
+      //获取失败，返回null
+      E poll()
+
+      //在此队列的尾部插入指定的元素，必要时等待空间可用
+      void put(E e)
+
+      //检索并删除此队列的头部，必要时等待元素变为可用
+      E take()
+
+
+  ```
+
+
+
+- SynchronousQueue
+
+  - 用于线程A向线程B传递数据（手把手）
+
+  ```java
+  	//将指定的元素添加到此队列中，必要时等待另一个线程接收它
+  	synchronousQueue.put("");
+  	//检索并移除此队列的头部，必要时等待另一个线程插入它。
+      synchronousQueue.take();
+  ```
+
