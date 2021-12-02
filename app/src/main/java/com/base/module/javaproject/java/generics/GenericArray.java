@@ -14,7 +14,7 @@ public class GenericArray<T> {
     public  void main(String[] args) {
 
         //不能实例化一个参数化类型的数组
-        Generic<String>[] generics=new Generic<String>[10];
-        ArrayList<String> list=new ArrayList<String>(10) ;
+//        Generic<String>[] generics=new Generic<String>[10];
+//        ArrayList<String> list=new ArrayList<String>(10) ;
     }
 }
